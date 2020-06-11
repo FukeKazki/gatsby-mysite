@@ -68,7 +68,7 @@ export default ({ data, pageContext, location }) => (
 							<ul>
 								{data.contentfulBlogPost.category.map(cat => (
 									<li className={cat.categorySlug} key={cat.id}>
-										{cat.category}
+										<Link to={`/cat/${cat.categorySlug}`}>{cat.category}</Link>
 									</li>
 								))}
 							</ul>
@@ -85,7 +85,7 @@ export default ({ data, pageContext, location }) => (
 					<ul className="postlink">
 						{pageContext.next && (
 							<li className="prev">
-								<Link to={`/blog/post/${pageContext.next.slug}`} rel="prev">
+								<Link to={`/blog/post/${pageContext.next.slug}/`} rel="prev">
 									<FontAwesomeIcon icon={faChevronLeft}/>
 									<span>{pageContext.next.title}</span>
 								</Link>
@@ -93,7 +93,7 @@ export default ({ data, pageContext, location }) => (
 						)}
 						{pageContext.previous && (
 							<li className="next">
-								<Link to={`/blog/post/${pageContext.previous.slug}`} rel="next">
+								<Link to={`/blog/post/${pageContext.previous.slug}/`} rel="next">
 									<span>{pageContext.previous.title}</span>
 									<FontAwesomeIcon icon={faChevronRight}/>
 								</Link>
